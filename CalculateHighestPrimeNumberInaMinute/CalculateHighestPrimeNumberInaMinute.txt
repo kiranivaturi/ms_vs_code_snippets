@@ -1,0 +1,20 @@
+
+
+PROGRAM NAME: 
+	CalculateHighestPrimeNumberInaMinute.
+
+DESCRIPTION: 
+	The idea is to find the highest possible prime number in less than 60 seconds. 
+	There is always a scope for improvements.
+	Welcome your suggestions or feedback on the code.
+
+	In this specific excersice I Implemented multi-threading in WinForm using BackgroundWorker class.
+	The description of each function and the purpose is documented in detail as a summary.
+
+	To run the application, simply Start the project. Once the WinFrom is loaded you should see the form with a Start button.
+	Once you click on the start button, the timer and the current calculated prime number should be displayed.
+
+Aurthor:
+	Kiran Ivaturi
+	vk.ivaturi@gmail.com
+
