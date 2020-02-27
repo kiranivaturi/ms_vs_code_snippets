@@ -1,0 +1,85 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Numbers_With_Equal_Digit_Sum
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int[] a = { 51,71,17,42,7};
+            Dictionary<int, List<int>> pairs = new Dictionary<int, List<int>>();
+
+            pairs = solution(a);
+            StringBuilder displayText = new StringBuilder();
+            displayText.Append("[");
+            foreach(var pair in pairs)
+            {
+                displayText.Append("[");
+                foreach (var item in pair.Value)
+                {
+                    displayText.Append(item);
+                    displayText.Append(",");
+
+                }
+                displayText.Remove(displayText.Length - 1, 1);
+                displayText.Append("]");
+
+
+
+            }
+            displayText.Append("]");
+            Console.WriteLine($"{ displayText.ToString()}");
+        }
+
+
+        static int computeDigitSum(int a)
+        {
+
+            int total = 0;
+            while(a>0)
+            {
+                total += a % 10;
+                a /= 10;
+            }
+            return total;
+        }
+        static Dictionary<int, List<int>> solution(int[] array)
+        {
+            Dictionary<int, List<int>> pair = new Dictionary<int, List<int>>();
+            
+
+
+            for (int i = 0; i < array.Length; i++)
+            {
+
+                int totalDigitVal = computeDigitSum(array[i]);
+            
+                if(!pair.ContainsKey(totalDigitVal))
+                {
+                    List<int> list = new List<int>();
+                    list.Add(array[i]);
+                    pair.Add(totalDigitVal, list);
+                }
+                else
+                {
+                    List<int> list = new List<int>();
+                    list = pair[totalDigitVal];
+                    list.Add(array[i]);
+                    pair[totalDigitVal] = list;
+                } 
+
+
+
+
+
+            }
+
+            return pair;
+        }
+    }
+}
