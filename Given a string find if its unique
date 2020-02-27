@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+
+namespace IsUnique
+{
+    class Program
+    {
+        
+       static bool Unique(string str)
+        {
+            bool chkString = false;
+
+            Dictionary<int, char> dict = new Dictionary<int, char>();
+
+
+            for(int i= 0; i< str.Length;i++)
+            {
+
+                if (dict.ContainsValue(str[i]))
+                {
+                    int key = dict.FirstOrDefault(c => c.Value == str[i]).Key;
+                    Console.WriteLine($"{dict[key]}: is repeated.");
+                    return chkString;
+                }
+                    
+                else
+                {
+                    dict.Add(i, str[i]);
+                }
+            } 
+            
+                      
+            
+
+            return !chkString;
+        }
+        static void Main(string[] args)
+        {
+            bool isUnique = Unique("abc");
+
+            Console.WriteLine($"{isUnique}");
+            isUnique = Unique("mom");
+            Console.WriteLine($"{isUnique}");
+
+        }
+    }
+}
